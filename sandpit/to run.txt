@@ -1,0 +1,9 @@
+run git bash here.
+
+type in:
+
+python -m http.server XXXX
+
+then browser:
+
+localhost:XXXX

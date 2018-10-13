@@ -5,20 +5,20 @@ with open(path1,"r") as f:
     data = json.load(f)
 
 nobel_winners =[
-    {'cataegory' : 'A',
+    {'category' : 'A',
      'name' : 'A name',
      'nationality' : 'A nation',
-     'sex' : 'A gender',
+     'sex' : 'male',
      'year' : 1},
-    {'cataegory' : 'B',
+    {'category' : 'B',
      'name' : 'B name',
      'nationality' : 'B nation',
-     'sex' : 'B gender',
+     'sex' : 'female',
      'year' : 2},
-    {'cataegory' : 'C',
+    {'category' : 'C',
      'name' : 'C name',
      'nationality' : 'C nation',
-     'sex' : 'C gender',
+     'sex' : 'male',
      'year' : 3}
     ]
 
@@ -36,15 +36,22 @@ cols = sorted(cols) #optional
 ##        row = [str(sample[col]) for col in cols]
 ##        f.write(','.join(row) +"\n")
 
-
 with open(path,'w' , newline= '') as f:#superior way with csv library
     writer = csv.DictWriter(f, fieldnames = cols)
     writer.writeheader()
     for w in nobel_winners:
         writer.writerow(w)
 
-with open(path,) as f:
+with open(path,'r') as f:
     reader = csv.reader(f)
     for row in reader:
         print (row)
+
+pathforjson = "../data/nobel_winners.json"
+
+with open(pathforjson,'w') as outfile:
+    json.dump(nobel_winners, outfile)
+    
+
+        
 
